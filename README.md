@@ -1,4 +1,4 @@
-# Rspec::Openapi::Validator
+# RspecContracts
 Short description and motivation.
 
 ## Usage
@@ -8,7 +8,7 @@ How to use my plugin.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rspec-openapi-validator'
+gem 'rspec_contracts'
 ```
 
 And then execute:
@@ -18,7 +18,7 @@ $ bundle
 
 Or install it yourself as:
 ```bash
-$ gem install rspec-openapi-validator
+$ gem install rspec_contracts
 ```
 
 ## Contributing
