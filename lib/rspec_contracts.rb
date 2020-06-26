@@ -11,6 +11,8 @@ require 'rspec_contracts/error/response_validation'
 require 'rspec_contracts/error/path_validation'
 require 'rspec_contracts/error/schema'
 require 'rspec_contracts/path_validator'
+require 'rspec_contracts/request_validator'
+require 'rspec_contracts/response_validator'
 require 'rspec_contracts/railtie' if defined?(Rails::Railtie)
 require "openapi_parser"
 
@@ -28,5 +30,6 @@ module RspecContracts
     RspecContracts.config.request_body_validation_mode = :raise
     RspecContracts.config.response_validation_mode = :raise
     RspecContracts.config.path_validation_mode = :raise
+    RspecContracts.config.strict_response_validation = true
   end
 end

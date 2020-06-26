@@ -3,14 +3,15 @@ require "rails_helper"
 describe 'API contract validation', type: :request do
   let(:file) { "spec/fixtures/petstore.yaml" }
   let(:contract) { RspecContracts::Contract.new(YAML.load_file(file)) }
+
   describe "operation lookup errors" do
     subject(:api_call) { get pets_path, api_operation: contract["undefinedOperation"] }
 
     it { expect { api_call }.to raise_error(RspecContracts::Error::OperationLookup) }
   end
 
-  context "when request has a request body" do
-    subject(:api_call) { post pets_path, params: post_params, as: :json, api_operation: contract["createPets"] }
+  context "when request has a request body", :focus do
+    subject(:api_call) { post pets_path, params: post_params, as: :json, api_operation: contract["addPet"] }
 
     context "when everything conforms to the spec" do
       let(:post_params) { attributes_for :pet }
@@ -21,7 +22,7 @@ describe 'API contract validation', type: :request do
     context "and when path does not match the operation" do   
       let(:post_params) { attributes_for :pet }
 
-      subject(:api_call) { post pets_path, params: post_params, as: :json, api_operation: contract["listPets"] }
+      subject(:api_call) { post pets_path, params: post_params, as: :json, api_operation: contract["findPets"] }
 
       context "and when raising path validation errors" do
         it { expect { api_call }.to raise_error(RspecContracts::Error::PathValidation) }

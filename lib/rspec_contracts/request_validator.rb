@@ -1,8 +1,14 @@
 class RspecContracts::RequestValidator
-  def validate_request(req, op)
-    op.validate_request_body(req.content_type, JSON.parse(req.body.read), OpenAPIParser::SchemaValidator::Options.new)
-  rescue OpenAPIParser::OpenAPIError => e
-    raise OpenApiRequestError.new(e.message) #if config.validation_mode == :raise
-    puts "#{e}" # if config.validation_mode == :warn
+  class << self
+    def validate_request(op, request)
+      op.validate_request_body(request.content_type, JSON.parse(request.body.read), opts)
+    rescue OpenAPIParser::OpenAPIError => e
+      raise OpenApiRequestError.new(e.message) #if config.validation_mode == :raise
+      puts "#{e}" # if config.validation_mode == :warn
+    end
+
+    def opts
+      OpenAPIParser::SchemaValidator::Options.new(coerce_value: true, datetime_coerce_class: DateTime)
+    end
   end
 end

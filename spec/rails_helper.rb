@@ -75,6 +75,8 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
 
+  config.filter_run_when_matching :focus
+
   config.before(:suite) do
     RspecContracts.config.base_path = ""
     RspecContracts.config.request_body_validation_mode = :raise
