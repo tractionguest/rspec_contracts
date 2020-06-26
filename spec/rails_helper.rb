@@ -74,4 +74,11 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include FactoryBot::Syntax::Methods
+
+  config.before(:suite) do
+    RspecContracts.config.base_path = ""
+    RspecContracts.config.request_body_validation_mode = :raise
+    RspecContracts.config.response_validation_mode = :raise
+    RspecContracts.config.path_validation_mode = :raise
+  end
 end

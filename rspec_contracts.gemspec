@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails", "~> 5.2.4", ">= 5.2.4.3"
   spec.add_dependency "rspec-rails"
+  spec.add_dependency "openapi_parser"
 
   spec.add_development_dependency "awesome_print"
   spec.add_development_dependency "bundler"
