@@ -16,18 +16,6 @@ AllCops:
     - 'spec/rails_helper.rb'
   TargetRubyVersion: 2.6
 
-Rails:
-  Enabled: true
-
-Rails/Output:
-  Exclude:
-    - 'lib/rspec_contracts/runner.rb'
-    - 'lib/rspec_contracts/launcher.rb'
-
-Rails/Exit:
-  Exclude:
-    - 'lib/rspec_contracts/runner.rb'
-
 Metrics/LineLength:
   IgnoreCopDirectives: true
   Max: 120
@@ -50,7 +38,7 @@ Style/SymbolArray:
   Enabled: true
 
 # Most readable form.
-Layout/AlignHash:
+Layout/HashAlignment:
   EnforcedHashRocketStyle: table
   EnforcedColonStyle: table
 
@@ -98,7 +86,7 @@ Style/SignalException:
 # Suppressing exceptions can be perfectly fine, and be it to avoid to
 # explicitly type nil into the rescue since that's what you want to return,
 # or suppressing LoadError for optional dependencies
-Lint/HandleExceptions:
+Lint/SuppressedException:
   Enabled: false
 
 Layout/SpaceInsideBlockBraces:
@@ -163,9 +151,6 @@ Metrics/BlockLength:
 Metrics/ModuleLength:
   Exclude:
     - 'spec/**/*.rb'
-    
-Rails/HasAndBelongsToMany:
-  Enabled: false
 
 RSpec/MultipleExpectations:
   Enabled: false
@@ -175,3 +160,46 @@ RSpec/NamedSubject:
     - spec/shared_examples/*
 Style/DoubleNegation:
   Enabled: false
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+  
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+  
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+  
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+  
+Lint/RaiseException:
+  Enabled: true
+  
+Lint/StructNewOverride:
+  Enabled: true
+  
+Style/ExponentialNotation:
+  Enabled: true
+  
+Style/HashEachMethods:
+  Enabled: true
+  
+Style/HashTransformKeys:
+  Enabled: true
+  
+Style/HashTransformValues:
+  Enabled: true
+  
+Style/RedundantFetchBlock:
+  Enabled: true
+  
+Style/RedundantRegexpCharacterClass:
+  Enabled: true
+  
+Style/RedundantRegexpEscape:
+  Enabled: true
+  
+Style/SlicingWithRange:
+  Enabled: true
+  

@@ -1,4 +1,6 @@
-$:.push File.expand_path("lib", __dir__)
+# frozen_string_literal: true
+
+$LOAD_PATH.push File.expand_path("lib", __dir__)
 
 # Maintain your gem's version:
 require "rspec_contracts/version"
@@ -23,11 +25,11 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "guard"
   spec.add_development_dependency "guard-bundler"
   spec.add_development_dependency "guard-rspec"
+  spec.add_development_dependency "overcommit"
   spec.add_development_dependency "pry-byebug"
   spec.add_development_dependency "rubocop"
   spec.add_development_dependency "rubocop-rspec"
   spec.add_development_dependency "simplecov"
   spec.add_development_dependency "simplecov-console"
-  spec.add_development_dependency "overcommit"
   spec.add_development_dependency "sqlite3"
 end
