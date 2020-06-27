@@ -27,9 +27,16 @@ module RspecContracts
     end
 
     RspecContracts.config.base_path = ""
-    RspecContracts.config.request_body_validation_mode = :raise
+    RspecContracts.config.request_validation_mode = :raise
     RspecContracts.config.response_validation_mode = :raise
     RspecContracts.config.path_validation_mode = :raise
     RspecContracts.config.strict_response_validation = true
   end
+
+  def self.valid_json?(json)
+    JSON.parse(json)
+    return true
+  rescue JSON::ParserError => e
+    return false
+end
 end

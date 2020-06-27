@@ -11,7 +11,7 @@ class RspecContracts::PathValidator
     end
 
     def operation_matches_request?(op, method, path)
-      op.root.request_operation(method.to_sym, path).operation_object == op
+      op.root.request_operation(method.to_sym, path)&.operation_object == op
     end
   end
 end

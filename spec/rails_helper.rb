@@ -77,9 +77,10 @@ RSpec.configure do |config|
 
   config.filter_run_when_matching :focus
 
-  config.before(:suite) do
+  config.before(:each) do
+    $serializer = PetSerializer
     RspecContracts.config.base_path = ""
-    RspecContracts.config.request_body_validation_mode = :raise
+    RspecContracts.config.request_validation_mode = :raise
     RspecContracts.config.response_validation_mode = :raise
     RspecContracts.config.path_validation_mode = :raise
   end
