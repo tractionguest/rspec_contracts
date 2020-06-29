@@ -5,12 +5,12 @@ describe 'API contract validation', type: :request do
   let(:contract) { RspecContracts::Contract.new(YAML.load_file(file)) }
 
   describe "operation lookup errors" do
-    subject(:api_call) { get pets_path, api_operation: contract["undefinedOperation"], min_api_version: "1.0.0" }
+    subject(:api_call) { get pets_path, api_operation: contract["undefinedOperation"], api_version: "1.0.0" }
 
     it { expect { api_call }.to raise_error(RspecContracts::Error::OperationLookup) }
 
     context "when operation does not exist in contract version" do
-      subject(:api_call) { get pets_path, api_operation: contract["undefinedOperation"], min_api_version: "1.0.1" }
+      subject(:api_call) { get pets_path, api_operation: contract["undefinedOperation"], api_version: "1.0.1" }
 
       it { expect { api_call }.not_to raise_error }  
     end
