@@ -5,6 +5,7 @@ PATH
       openapi_parser
       rails (~> 5.2.4, >= 5.2.4.3)
       rspec-rails
+      semverse
 
 GEM
   remote: https://rubygems.org/
@@ -206,6 +207,7 @@ GEM
     rubocop-rspec (1.40.0)
       rubocop (>= 0.68.1)
     ruby-progressbar (1.10.1)
+    semverse (3.0.0)
     shellany (0.0.1)
     simplecov (0.18.5)
       docile (~> 1.1)

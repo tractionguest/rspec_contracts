@@ -1,6 +1,12 @@
 class RspecContracts::Operation
-  def initialize(op)
+  attr_reader :root
+  def initialize(op, root)
     @op = op
+    @root = root
+  end
+
+  def valid?
+    @op.present?
   end
 
   def ==(val)

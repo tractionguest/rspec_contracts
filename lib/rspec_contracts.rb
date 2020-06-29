@@ -16,6 +16,7 @@ require 'rspec_contracts/request_validator'
 require 'rspec_contracts/response_validator'
 require 'rspec_contracts/railtie' if defined?(Rails::Railtie)
 require "openapi_parser"
+require "semverse"
 
 module RspecContracts
   def self.config

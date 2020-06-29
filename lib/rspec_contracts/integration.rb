@@ -5,8 +5,11 @@ module RspecContracts::Integration
     define_method(method) do |*args, **kwargs|
       request_path = args.first
       api_operation = kwargs.delete(:api_operation)
+      min_api_version = kwargs.delete(:min_api_version)
       super(*args, **kwargs).tap do |status_code|
-        return unless api_operation
+        return unless api_operation # even a non-present contract lookup will still be present
+        return if min_api_version.present? && !Semverse::Constraint.new(api_operation.root.version).include?(min_api_version)
+        raise RspecContracts::Error::OperationLookup.new("Operation not found") unless api_operation.valid?
 
         RspecContracts.config.logger.tagged("rspec_contracts", api_operation.operation_id) do
 
