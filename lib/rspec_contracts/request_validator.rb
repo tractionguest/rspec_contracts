@@ -7,7 +7,12 @@ class RspecContracts::RequestValidator
     rescue OpenAPIParser::OpenAPIError => e
       raise RspecContracts::Error::RequestValidation.new(e.message) if RspecContracts.config.request_validation_mode == :raise
 
-      puts "#{e}"
+      formatted_for_logging = {
+        body: parsed_body,
+        headers: request.headers.to_h.select { |k, _| k.starts_with?("HTTP_") }.transform_keys { |k| k.remove("HTTP_").downcase }
+      }
+      RspecContracts.config.logger.error "Contract validation warning: #{e.message}"
+      RspecContracts.config.logger.error "Request was: #{formatted_for_logging.pretty_inspect}"
     end
 
     def opts

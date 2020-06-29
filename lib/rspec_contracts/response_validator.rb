@@ -5,7 +5,8 @@ class RspecContracts::ResponseValidator
     rescue OpenAPIParser::OpenAPIError => e
       raise RspecContracts::Error::ResponseValidation.new(e.message) if RspecContracts.config.response_validation_mode == :raise
     
-      puts "WARNING: Response validation error: #{e}"
+      RspecContracts.config.logger.error "Contract validation warning: #{e.message}"
+      RspecContracts.config.logger.error "Response was: #{resp.pretty_inspect}"
     end
 
     def opts

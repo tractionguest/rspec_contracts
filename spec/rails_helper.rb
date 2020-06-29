@@ -83,5 +83,6 @@ RSpec.configure do |config|
     RspecContracts.config.request_validation_mode = :raise
     RspecContracts.config.response_validation_mode = :raise
     RspecContracts.config.path_validation_mode = :raise
+    RspecContracts.config.logger = Rails.logger
   end
 end

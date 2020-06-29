@@ -8,6 +8,7 @@ describe 'API contract validation', type: :request do
 
   context "and when response does not match the operation" do
     before { $serializer = BrokenPetSerializer }
+    after { $serializer = PetSerializer }
     let(:post_params) { attributes_for :pet }
 
     subject(:api_call) { post pets_path, params: post_params, as: :json, api_operation: contract["addPet"] }

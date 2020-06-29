@@ -4,6 +4,7 @@ require 'active_support/lazy_load_hooks'
 require "rspec_contracts/engine"
 require "rspec_contracts/integration"
 require 'rspec_contracts/contract'
+require 'rspec_contracts/operation'
 require 'rspec_contracts/error'
 require 'rspec_contracts/error/operation_lookup'
 require 'rspec_contracts/error/request_validation'
@@ -26,11 +27,12 @@ module RspecContracts
       include RspecContracts::Integration
     end
 
-    RspecContracts.config.base_path = ""
-    RspecContracts.config.request_validation_mode = :raise
-    RspecContracts.config.response_validation_mode = :raise
-    RspecContracts.config.path_validation_mode = :raise
-    RspecContracts.config.strict_response_validation = true
+    RspecContracts.config.base_path ||= ""
+    RspecContracts.config.request_validation_mode ||= :raise
+    RspecContracts.config.response_validation_mode ||= :raise
+    RspecContracts.config.path_validation_mode ||= :raise
+    RspecContracts.config.strict_response_validation ||= true
+    RspecContracts.config.logger ||= Logger.new("log/rspec_contracts.log")
   end
 
   def self.valid_json?(json)
@@ -38,5 +40,5 @@ module RspecContracts
     return true
   rescue JSON::ParserError => e
     return false
-end
+  end
 end

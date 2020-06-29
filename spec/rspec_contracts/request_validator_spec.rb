@@ -19,4 +19,16 @@ describe 'API contract validation', type: :request do
       end
     end
   end
+
+  context "when request does not have a request body" do
+    subject(:api_call) { get pets_path, as: :json, api_operation: contract["findPets"] }
+
+    it { expect { api_call }.not_to raise_error }
+
+    context "and when not raising request body validation errors" do
+      before { RspecContracts.config.request_validation_mode = :warn }
+
+      it { expect { api_call }.not_to raise_error }
+    end
+  end
 end

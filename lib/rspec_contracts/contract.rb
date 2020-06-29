@@ -14,7 +14,7 @@ class RspecContracts::Contract
       p._openapi_all_child_objects.values.map do |op| 
         next unless op.respond_to?(:operation_id)
 
-        [op.operation_id, op]
+        [op.operation_id, RspecContracts::Operation.new(op)]
       end.compact.to_h
     end.inject(:merge).with_indifferent_access
   end

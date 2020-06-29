@@ -8,12 +8,15 @@ module RspecContracts::Integration
       super(*args, **kwargs).tap do |status_code|
         return unless api_operation
 
-        RspecContracts::PathValidator.validate_path(api_operation, method, request_path) unless RspecContracts.config.path_validation_mode == :ignore
-        RspecContracts::RequestValidator.validate_request(api_operation, request) unless RspecContracts.config.request_validation_mode == :ignore
+        RspecContracts.config.logger.tagged("rspec_contracts", api_operation.operation_id) do
 
-        unless RspecContracts.config.response_validation_mode == :ignore 
-          validatable_response = OpenAPIParser::RequestOperation::ValidatableResponseBody.new(status_code, JSON.parse(response.body), response.headers)
-          RspecContracts::ResponseValidator.validate_response(api_operation, validatable_response)
+          RspecContracts::PathValidator.validate_path(api_operation, method, request_path) unless RspecContracts.config.path_validation_mode == :ignore
+          RspecContracts::RequestValidator.validate_request(api_operation, request) unless RspecContracts.config.request_validation_mode == :ignore
+
+          unless RspecContracts.config.response_validation_mode == :ignore
+            validatable_response = OpenAPIParser::RequestOperation::ValidatableResponseBody.new(status_code, JSON.parse(response.body), response.headers)
+            RspecContracts::ResponseValidator.validate_response(api_operation, validatable_response)
+          end
         end
       end
     end
