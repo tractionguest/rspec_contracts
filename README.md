@@ -117,7 +117,7 @@ The operation you're trying to test does not match either the HTTP method, or th
 
 The POST body (if one is present) does not match the schema for a valid request as defined by the given operation.
 
-### `RspecContracts::Error::RequestValidation`
+### `RspecContracts::Error::ResponseValidation`
 
 The response body does not match the schema for a valid response as defined by the given operation.
 
