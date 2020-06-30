@@ -6,7 +6,7 @@ class RspecContracts::ResponseValidator
       raise RspecContracts::Error::ResponseValidation.new(e.message) if RspecContracts.config.response_validation_mode == :raise
     
       RspecContracts.config.logger.error "Contract validation warning: #{e.message}"
-      RspecContracts.config.logger.error "Response was: #{resp.pretty_inspect}"
+      RspecContracts.config.logger.error "Response was: #{resp}"
     end
 
     def opts

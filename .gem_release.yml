@@ -1,0 +1,4 @@
+quiet: true
+
+release:
+  host: https://rubygems.org
