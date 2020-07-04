@@ -5,10 +5,7 @@ on:
     branches: [ master ]
     paths:
       - 'lib/rspec_contracts/version.rb'
-  pull_request:
-    branches: [ master ]
-    paths:
-      - 'lib/rspec_contracts/version.rb'
+
 jobs:
   build:
     name: Build + Publish
