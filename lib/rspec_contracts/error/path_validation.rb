@@ -1,4 +1,8 @@
 # frozen_string_literal: true
 
-class RspecContracts::Error::PathValidation < RspecContracts::Error
+module RspecContracts
+  class Error
+    class PathValidation < RspecContracts::Error
+    end
+  end
 end

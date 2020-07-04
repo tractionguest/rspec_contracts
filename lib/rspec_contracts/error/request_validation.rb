@@ -1,4 +1,8 @@
 # frozen_string_literal: true
 
-class RspecContracts::Error::RequestValidation < RspecContracts::Error
+module RspecContracts
+  class Error
+    class RequestValidation < RspecContracts::Error
+    end
+  end
 end

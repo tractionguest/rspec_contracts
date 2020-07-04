@@ -1,4 +1,8 @@
 # frozen_string_literal: true
 
-class RspecContracts::Error::OperationLookup < RspecContracts::Error
+module RspecContracts
+  class Error
+    class OperationLookup < RspecContracts::Error
+    end
+  end
 end

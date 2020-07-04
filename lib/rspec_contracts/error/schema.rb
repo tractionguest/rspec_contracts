@@ -1,4 +1,8 @@
 # frozen_string_literal: true
 
-class RspecContracts::Error::Schema < RspecContracts::Error
+module RspecContracts
+  class Error
+    class Schema < RspecContracts::Error
+    end
+  end
 end
