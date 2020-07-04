@@ -20,7 +20,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails", ">= 5.2", "< 6.1.0"
   spec.add_dependency "rspec-rails"
-  spec.add_dependency "openapi_parser"
   spec.add_dependency "semverse"
 
   spec.add_development_dependency "awesome_print"
@@ -32,7 +31,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "guard-bundler"
   spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency "overcommit"
-  spec.add_development_dependency "pry-byebug"
+  spec.add_development_dependency "pry-rescue"
+  spec.add_development_dependency "pry-stack_explorer"
   spec.add_development_dependency "rubocop"
   spec.add_development_dependency "rubocop-rspec"
   spec.add_development_dependency "simplecov", "< 0.18"
