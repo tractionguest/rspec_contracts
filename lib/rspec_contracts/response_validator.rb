@@ -1,7 +1,7 @@
 class RspecContracts::ResponseValidator
   class << self
     def validate_response(op, resp)
-      op.validate_response(resp, opts)
+      op.validate_response(resp, opts(has_content: resp.content_type.present?))
     rescue OpenAPIParser::OpenAPIError => e
       raise RspecContracts::Error::ResponseValidation.new(e.message) if RspecContracts.config.response_validation_mode == :raise
     
@@ -9,8 +9,8 @@ class RspecContracts::ResponseValidator
       RspecContracts.config.logger.error "Response was: #{resp}"
     end
 
-    def opts
-      OpenAPIParser::SchemaValidator::ResponseValidateOptions.new(strict: RspecContracts.config.strict_response_validation)
+    def opts(has_content: true)
+      OpenAPIParser::SchemaValidator::ResponseValidateOptions.new(strict: has_content && RspecContracts.config.strict_response_validation)
     end
   end
 end
