@@ -78,6 +78,8 @@ GEM
     case_transform (0.2)
       activesupport
     childprocess (4.0.0)
+    codeclimate-test-reporter (1.0.7)
+      simplecov
     coderay (1.1.3)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
@@ -260,6 +262,7 @@ DEPENDENCIES
   awesome_print
   bundler
   byebug
+  codeclimate-test-reporter
   factory_bot_rails
   guard
   guard-bundler
