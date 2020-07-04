@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RspecContracts::PathValidator
   class << self
     def validate_path(op, method, path)
@@ -5,8 +7,8 @@ class RspecContracts::PathValidator
       return if operation_matches_request?(op, method, lookup_path)
 
       msg = "#{method.upcase} #{path} does not resolve to #{op.operation_id}"
-      raise RspecContracts::Error::PathValidation.new(msg)  if RspecContracts.config.path_validation_mode == :raise 
-    
+      raise RspecContracts::Error::PathValidation.new(msg) if RspecContracts.config.path_validation_mode == :raise
+
       RspecContracts.config.logger.error "Contract validation warning: #{msg}"
     end
 

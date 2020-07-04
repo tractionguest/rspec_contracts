@@ -22,8 +22,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rspec-rails"
   spec.add_dependency "semverse"
 
-  spec.add_development_dependency "awesome_print"
   spec.add_development_dependency "active_model_serializers"
+  spec.add_development_dependency "awesome_print"
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "byebug"
   spec.add_development_dependency "factory_bot_rails"

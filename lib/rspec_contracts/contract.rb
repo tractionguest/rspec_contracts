@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RspecContracts::Contract
   def initialize(schema)
     @schema = schema.with_indifferent_access
@@ -18,7 +20,7 @@ class RspecContracts::Contract
 
   def operations
     @operations ||= paths.map do |p|
-      p._openapi_all_child_objects.values.map do |op| 
+      p._openapi_all_child_objects.values.map do |op|
         next unless op.respond_to?(:operation_id)
 
         [op.operation_id, RspecContracts::Operation.new(op, self)]

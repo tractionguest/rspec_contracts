@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 class RspecContracts::Operation
   attr_reader :root
+
   def initialize(op, root)
     @op = op
     @root = root
