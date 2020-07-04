@@ -27,7 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "active_model_serializers"
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "byebug"
-  spec.add_development_dependency "codeclimate-test-reporter"
   spec.add_development_dependency "factory_bot_rails"
   spec.add_development_dependency "guard"
   spec.add_development_dependency "guard-bundler"
@@ -36,7 +35,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry-byebug"
   spec.add_development_dependency "rubocop"
   spec.add_development_dependency "rubocop-rspec"
-  spec.add_development_dependency "simplecov"
+  spec.add_development_dependency "simplecov", "< 0.18"
   spec.add_development_dependency "simplecov-console"
   spec.add_development_dependency "sqlite3"
 end
