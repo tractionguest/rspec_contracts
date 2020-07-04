@@ -33,3 +33,7 @@ jobs:
       run: bundle install
     - name: Run tests
       run: bundle exec rspec
+    - name: Report to CodeClimate
+      run: bundle exec codeclimate-test-reporter
+      env:
+        CODECLIMATE_REPO_TOKEN: ${{secrets.CODECLIMATE_REPO_TOKEN}}
