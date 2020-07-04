@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-require 'active_support/lazy_load_hooks'
+require "active_support/lazy_load_hooks"
 require "rspec_contracts/engine"
 require "rspec_contracts/integration"
-require 'rspec_contracts/contract'
-require 'rspec_contracts/operation'
-require 'rspec_contracts/error'
-require 'rspec_contracts/error/operation_lookup'
-require 'rspec_contracts/error/request_validation'
-require 'rspec_contracts/error/response_validation'
-require 'rspec_contracts/error/path_validation'
-require 'rspec_contracts/error/schema'
-require 'rspec_contracts/path_validator'
-require 'rspec_contracts/request_validator'
-require 'rspec_contracts/response_validator'
-require 'rspec_contracts/railtie' if defined?(Rails::Railtie)
+require "rspec_contracts/contract"
+require "rspec_contracts/operation"
+require "rspec_contracts/error"
+require "rspec_contracts/error/operation_lookup"
+require "rspec_contracts/error/request_validation"
+require "rspec_contracts/error/response_validation"
+require "rspec_contracts/error/path_validation"
+require "rspec_contracts/error/schema"
+require "rspec_contracts/path_validator"
+require "rspec_contracts/request_validator"
+require "rspec_contracts/response_validator"
+require "rspec_contracts/railtie" if defined?(Rails::Railtie)
 require "openapi_parser"
 require "semverse"
 
@@ -38,8 +38,8 @@ module RspecContracts
 
   def self.valid_json?(json)
     JSON.parse(json.to_s)
-    return true
-  rescue JSON::ParserError => e
-    return false
+    true
+  rescue JSON::ParserError => _e
+    false
   end
 end

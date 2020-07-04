@@ -16,7 +16,7 @@ AllCops:
     - 'spec/rails_helper.rb'
   TargetRubyVersion: 2.6
 
-Metrics/LineLength:
+Layout/LineLength:
   IgnoreCopDirectives: true
   Max: 120
   IgnoredPatterns: ['^\s*#']
@@ -25,6 +25,12 @@ Metrics/LineLength:
 # from a regular assignment.
 Layout/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: no_space
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Naming/MethodParameterName:
+  Enabled: false
 
 # Single quotes being faster is hardly measurable and only affects parse time.
 # Enforcing double quotes reduces the times where you need to change them
@@ -167,11 +173,6 @@ Layout/EmptyLinesAroundAttributeAccessor:
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
 
-Lint/DeprecatedOpenSSLConstant:
-  Enabled: true
-
-Lint/MixedRegexpCaptureTypes:
-  Enabled: true
 
 Lint/RaiseException:
   Enabled: true
@@ -189,15 +190,6 @@ Style/HashTransformKeys:
   Enabled: true
 
 Style/HashTransformValues:
-  Enabled: true
-
-Style/RedundantFetchBlock:
-  Enabled: true
-
-Style/RedundantRegexpCharacterClass:
-  Enabled: true
-
-Style/RedundantRegexpEscape:
   Enabled: true
 
 Style/SlicingWithRange:
