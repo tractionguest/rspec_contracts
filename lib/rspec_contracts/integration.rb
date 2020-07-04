@@ -22,9 +22,9 @@ module RspecContracts::Integration
           end
 
           unless RspecContracts.config.response_validation_mode == :ignore
-            parsed_body = RspecContracts.valid_json?(response.body) ? JSON.parse(response.body) : nil
-            validatable_response = OpenAPIParser::RequestOperation::ValidatableResponseBody.new(status_code, parsed_body, response.headers)
-            RspecContracts::ResponseValidator.validate_response(api_operation, validatable_response)
+            parsed = RspecContracts.valid_json?(response.body) ? JSON.parse(response.body) : nil
+            vr = OpenAPIParser::RequestOperation::ValidatableResponseBody.new(status_code, parsed, response.headers)
+            RspecContracts::ResponseValidator.validate_response(api_operation, vr)
           end
         end
       end
