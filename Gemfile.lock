@@ -7,7 +7,7 @@ GIT
 PATH
   remote: .
   specs:
-    rspec_contracts (0.1.1)
+    rspec_contracts (0.1.2)
       rails (>= 5.2, < 6.1.0)
       rspec-rails
       semverse
