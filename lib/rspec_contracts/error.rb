@@ -1,4 +1,6 @@
 # frozen_string_literal: true
 
-class RspecContracts::Error < StandardError
+module RspecContracts
+  class Error < StandardError
+  end
 end
