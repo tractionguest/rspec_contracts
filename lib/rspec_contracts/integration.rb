@@ -5,7 +5,7 @@ module RspecContracts
     http_verbs = %w[get post patch put delete]
 
     def version_satisfied?(constraints, api_version)
-      Array(constraints).all? { |constraint| Semverse::Constraint.new(constraint).satisfies?(api_version) }
+      Array(constraints).all? {|constraint| Semverse::Constraint.new(constraint).satisfies?(api_version) }
     end
 
     http_verbs.each do |method|
