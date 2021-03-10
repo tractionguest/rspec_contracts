@@ -91,7 +91,7 @@ Version constraints accept the same format as bundler in your Gemfile, so all of
 
 ```ruby
   let(:api_call) { get pets_path, api_operation: contract["findPets"], api_version: "~> 1.1.0" }
-  let(:api_call) { get pets_path, api_operation: contract["findPets"], api_version: ">= 1.1.0, < 2" }
+  let(:api_call) { get pets_path, api_operation: contract["findPets"], api_version: [">= 1.1.0", "< 2"] }
   let(:api_call) { get pets_path, api_operation: contract["findPets"], api_version: "1.1.0" }
 ```
 
