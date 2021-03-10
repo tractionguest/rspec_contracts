@@ -15,6 +15,18 @@ describe "API contract validation", type: :request do
       subject(:api_call) { get pets_path, api_operation: contract["undefinedOperation"], api_version: "1.0.1" }
 
       it { expect { api_call }.not_to raise_error }
+
+      context "and API version constraint has more than one matcher" do
+        subject(:api_call) { get pets_path, api_operation: contract["undefinedOperation"], api_version: [">= 1.0.1", "< 2.0.1"] }
+
+        it { expect { api_call }.not_to raise_error }
+      end
+
+      context "and API version constraint is complex" do
+        subject(:api_call) { get pets_path, api_operation: contract["undefinedOperation"], api_version: ">= 1.0.1" }
+
+        it { expect { api_call }.not_to raise_error }
+      end
     end
   end
 

@@ -1,9 +1,3 @@
-GIT
-  remote: https://github.com/tractionguest/openapi_parser
-  revision: 02a31f650d08a15fefb0392af8902dbc534cba4e
-  specs:
-    openapi_parser (0.11.2)
-
 PATH
   remote: .
   specs:
@@ -148,6 +142,7 @@ GEM
     notiffany (0.1.3)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    openapi_parser (0.12.1)
     overcommit (0.54.0)
       childprocess (>= 0.6.3, < 5)
       iniparse (~> 1.4)
@@ -272,7 +267,7 @@ DEPENDENCIES
   guard
   guard-bundler
   guard-rspec
-  openapi_parser!
+  openapi_parser
   overcommit
   pry-rescue
   pry-stack_explorer
