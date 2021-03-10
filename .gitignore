@@ -13,3 +13,4 @@ spec/dummy/tmp/
 *.gem
 /coverage/
 /tmp/
+spec/examples.txt

@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.version     = RspecContracts::VERSION
   spec.authors     = ["Steven Allen"]
   spec.email       = ["sallen@tractionguest.com"]
-  spec.homepage    = "https://github.com/tractionguest/rspec-openapi-validator"
+  spec.homepage    = "https://github.com/tractionguest/rspec_contracts"
   spec.summary     = "Contract testing for Rspec requests"
   spec.description = "Use your OpenAPI3 schema to automatically perform contract testing while you write request specs"
   spec.license     = "MIT"

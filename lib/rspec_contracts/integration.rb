@@ -4,6 +4,10 @@ module RspecContracts
   module Integration
     http_verbs = %w[get post patch put delete]
 
+    def version_satisfied?(constraints, api_version)
+      Array(constraints).all? { |constraint| Semverse::Constraint.new(constraint).satisfies?(api_version) }
+    end
+
     http_verbs.each do |method|
       define_method(method) do |*args, **kwargs|
         request_path = args.first
@@ -11,7 +15,7 @@ module RspecContracts
         api_version = kwargs.delete(:api_version)
         super(*args, **kwargs).tap do |status_code|
           next unless api_operation # even a not found contract lookup will still be present
-          next if api_version.present? && !Semverse::Constraint.new(api_operation.root.version).include?(api_version)
+          next if api_version.present? && !version_satisfied?(api_version, api_operation.root.version)
           raise RspecContracts::Error::OperationLookup.new("Operation not found") unless api_operation.valid?
 
           RspecContracts.config.logger.tagged("rspec_contracts", api_operation.operation_id) do
