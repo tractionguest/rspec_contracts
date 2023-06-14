@@ -4,7 +4,7 @@ module RspecContracts
   class Contract
     def initialize(schema)
       @schema = schema.with_indifferent_access
-      @root = OpenAPIParser.parse(schema)
+      @root = OpenAPIParser.parse(schema, strict_reference_validation: true)
     end
 
     def [](key)
