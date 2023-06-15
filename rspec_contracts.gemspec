@@ -18,8 +18,8 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  spec.add_dependency "rails", "~> 6.1.7", ">= 6.1.7.3"
-  spec.add_dependency "rspec-rails"
+  spec.add_dependency "rails", "~> 7.0.5"
+  spec.add_dependency "rspec-rails", '~> 6.0.0'
   spec.add_dependency "semverse"
 
   spec.add_development_dependency "active_model_serializers"
@@ -33,9 +33,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "overcommit"
   spec.add_development_dependency "pry-rescue"
   spec.add_development_dependency "pry-stack_explorer"
-  spec.add_development_dependency "rubocop", "~> 0.83.0"
+  spec.add_development_dependency "rubocop"
   spec.add_development_dependency "rubocop-rspec"
-  spec.add_development_dependency "simplecov", "< 0.18"
+  spec.add_development_dependency "simplecov"
   spec.add_development_dependency "simplecov-console"
   spec.add_development_dependency "sqlite3"
 end

@@ -12,7 +12,6 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
-require "sprockets/railtie"
 require "active_model_serializers"
 
 Bundler.require(*Rails.groups)
@@ -22,7 +21,7 @@ require "factory_bot_rails"
 module Dummy
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+    config.load_defaults 7.0
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
