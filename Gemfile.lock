@@ -3,7 +3,7 @@ PATH
   specs:
     rspec_contracts (0.3.0)
       rails (~> 7.0.5)
-      rspec-rails
+      rspec-rails (~> 6.0.0)
       semverse
 
 GEM
@@ -292,9 +292,9 @@ DEPENDENCIES
   pry-rescue
   pry-stack_explorer
   rspec_contracts!
-  rubocop (~> 0.83.0)
+  rubocop
   rubocop-rspec
-  simplecov (< 0.18)
+  simplecov
   simplecov-console
   sqlite3
 
