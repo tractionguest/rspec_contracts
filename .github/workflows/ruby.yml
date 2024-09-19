@@ -17,7 +17,7 @@ jobs:
   test:
     strategy:
       matrix:
-        ruby-version: [ '2.6', '2.7' ]
+        ruby-version: [ '3.2' ]
     runs-on: ubuntu-latest
     name: test/ruby ${{ matrix.ruby-version }}
     steps:
@@ -28,7 +28,7 @@ jobs:
       # uses: ruby/setup-ruby@v1
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.7
+          ruby-version: 3.2.2
       - name: Install system dependencies
         run: sudo apt-get install libsqlite3-dev
       - name: Install bundler dependencies
