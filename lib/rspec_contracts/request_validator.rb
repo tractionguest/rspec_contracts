@@ -6,7 +6,7 @@ module RspecContracts
       def validate_request(op, request)
         body = request.body.read
         parsed_body = RspecContracts.valid_json?(body) ? JSON.parse(request.body.read) : nil
-        op.validate_request_body(request.content_type, parsed_body, opts)
+        op.validate_request_body(request.media_type, parsed_body, opts)
       rescue OpenAPIParser::OpenAPIError => e
         if RspecContracts.config.request_validation_mode == :raise
           raise RspecContracts::Error::RequestValidation.new(e.message)
