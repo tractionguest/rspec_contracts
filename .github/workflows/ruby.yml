@@ -34,7 +34,7 @@ jobs:
       - name: Install bundler dependencies
         run: bundle install
       - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v2.6.0
+        uses: paambaati/codeclimate-action@v9
         env:
           CC_TEST_REPORTER_ID: ${{secrets.CODECLIMATE_REPO_TOKEN}}
         with:
