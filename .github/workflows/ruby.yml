@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     name: test/ruby ${{ matrix.ruby-version }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Set up Ruby
       # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
       # change this to (see https://github.com/ruby/setup-ruby#versioning):
@@ -33,9 +33,23 @@ jobs:
         run: sudo apt-get install libsqlite3-dev
       - name: Install bundler dependencies
         run: bundle install
-      - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v9
-        env:
-          CC_TEST_REPORTER_ID: ${{secrets.CODECLIMATE_REPO_TOKEN}}
+      - name: Run tests
+        run: |
+          bundle exec rspec \
+              --format RspecJunitFormatter \
+              --out tmp/rspec.xml \
+              --format progress
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
         with:
-            coverageCommand: bundle exec rspec
+          name: rspec_result
+          path: tmp/rspec*.xml
+
+      - name: Publish Test Report
+        uses: EnricoMi/publish-unit-test-result-action@v2.16.1
+        if: always()
+        with:
+          check_name: RSpec Results
+          files: tmp/rspec*.xml

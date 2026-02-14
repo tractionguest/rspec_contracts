@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rspec_contracts (0.3.0)
+    rspec_contracts (0.3.1)
       rails (~> 7.0)
       rspec-rails
       semverse
@@ -294,6 +294,8 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.7)
+    rspec_junit_formatter (0.6.0)
+      rspec-core (>= 2, < 4, != 2.12.0)
     rubocop (1.84.2)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
@@ -361,6 +363,7 @@ DEPENDENCIES
   pry-rescue
   pry-stack_explorer
   rspec_contracts!
+  rspec_junit_formatter
   rubocop (~> 1.60)
   rubocop-rspec
   simplecov (~> 0.22)

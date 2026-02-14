@@ -38,6 +38,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubocop", "~> 1.60"
   spec.add_development_dependency "rubocop-rspec"
   spec.add_development_dependency "simplecov", "~> 0.22"
+  spec.add_development_dependency "rspec_junit_formatter"
   spec.add_development_dependency "simplecov-console"
   spec.add_development_dependency "sqlite3", "~> 2.0"
 end
