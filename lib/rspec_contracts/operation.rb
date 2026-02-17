@@ -20,5 +20,9 @@ module RspecContracts
     def method_missing(m, *args, &block)
       @op.send(m, *args, &block)
     end
+
+    def respond_to_missing?(method_name, include_private = false)
+      @op.respond_to?(method_name, include_private) || super
+    end
   end
 end

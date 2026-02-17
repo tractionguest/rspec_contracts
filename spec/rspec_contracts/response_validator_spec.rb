@@ -6,7 +6,7 @@ describe "API contract validation", type: :request do
   subject(:api_call) { post pets_path, params: post_params, as: :json, api_operation: contract["addPet"] }
 
   let(:file) { "spec/fixtures/petstore.yaml" }
-  let(:contract) { RspecContracts::Contract.new(YAML.load_file(file)) }
+  let(:contract) { RspecContracts::Contract.new(YAML.safe_load_file(file, permitted_classes: [Symbol, Date, Time])) }
 
   context "when response does not match the operation" do
     subject(:api_call) { post pets_path, params: post_params, as: :json, api_operation: contract["addPet"] }

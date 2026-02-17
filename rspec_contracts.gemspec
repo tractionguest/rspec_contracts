@@ -16,6 +16,8 @@ Gem::Specification.new do |spec|
   spec.description = "Use your OpenAPI3 schema to automatically perform contract testing while you write request specs"
   spec.license     = "MIT"
 
+  spec.required_ruby_version = ">= 3.1"
+
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   spec.add_dependency "rails", "~> 7.0"
@@ -25,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "active_model_serializers"
   spec.add_development_dependency "awesome_print"
   spec.add_development_dependency "bundler"
-  spec.add_development_dependency "byebug"
+  spec.add_development_dependency "debug"
   spec.add_development_dependency "factory_bot_rails"
   spec.add_development_dependency "guard"
   spec.add_development_dependency "guard-bundler"
@@ -33,9 +35,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "overcommit"
   spec.add_development_dependency "pry-rescue"
   spec.add_development_dependency "pry-stack_explorer"
-  spec.add_development_dependency "rubocop", "~> 0.83.0"
+  spec.add_development_dependency "rubocop", "~> 1.60"
   spec.add_development_dependency "rubocop-rspec"
-  spec.add_development_dependency "simplecov", "< 0.18"
+  spec.add_development_dependency "simplecov", "~> 0.22"
+  spec.add_development_dependency "rspec_junit_formatter"
   spec.add_development_dependency "simplecov-console"
-  spec.add_development_dependency "sqlite3"
+  spec.add_development_dependency "sqlite3", "~> 2.0"
 end

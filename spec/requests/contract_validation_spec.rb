@@ -4,7 +4,7 @@ require "rails_helper"
 
 describe "API contract validation", type: :request do
   let(:file) { "spec/fixtures/petstore.yaml" }
-  let(:contract) { RspecContracts::Contract.new(YAML.load_file(file)) }
+  let(:contract) { RspecContracts::Contract.new(YAML.safe_load_file(file, permitted_classes: [Symbol, Date, Time])) }
 
   describe "operation lookup errors" do
     subject(:api_call) { get pets_path, api_operation: contract["undefinedOperation"], api_version: "1.0.0" }
