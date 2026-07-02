@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rspec_contracts (0.3.1)
+    rspec_contracts (1.0.0)
       rails (>= 7.0, < 9.0)
       rspec-rails
       semverse
